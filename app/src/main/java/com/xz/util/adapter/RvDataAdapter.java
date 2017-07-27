@@ -21,8 +21,8 @@ public abstract class RvDataAdapter<T> extends RecyclerView.Adapter<RvViewHolder
     protected SparseArrayCompat<View> mFootViews = new SparseArrayCompat<>();//footerView数量
     protected static final int BASE_ITEM_TYPE_HEADER = 100000;//定义header的key的起始位置
     protected static final int BASE_ITEM_TYPE_FOOTER = 200000;//定义footer的Key的起始位置
-    protected RvMultiItemTypeAdapter.OnItemClickListener mOnItemClickListener;//点击事件
-    protected RvMultiItemTypeAdapter.OnItemLongClickListener mOnItemLongClickListener;//长按事件
+    protected OnItemClickListener mOnItemClickListener;//点击事件
+    protected OnItemLongClickListener mOnItemLongClickListener;//长按事件
 
 
     public List<T> getDatas() {

@@ -1,6 +1,7 @@
 package com.xz.util.adapter;
 
 import android.support.annotation.LayoutRes;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,10 +11,12 @@ import com.xz.util.adapter.util.RvViewHolder;
  * 一个简单封装了，Rl点击事件的类，
  * Created by xz on 2016/8/15 0015.
  * <p>
- * 纯净版的adapter(没有head，footer，多layout控制，只有数据的控制)
+ * 纯净版的adapter(没有head，footer，多layout控制 数据控制，只有点击事件)
  */
-public abstract class RvPureAdapter<T> extends RvDataAdapter<T> {
+public abstract class RvPureAdapter extends RecyclerView.Adapter<RvViewHolder> {
 
+    protected OnItemClickListener mOnItemClickListener;//点击事件
+    protected OnItemLongClickListener mOnItemLongClickListener;//长按事件
 
     @Override
     public RvViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -23,7 +26,7 @@ public abstract class RvPureAdapter<T> extends RvDataAdapter<T> {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener != null) {
-                    int position = viewHolder.getAdapterPosition() - getHeadersCount();
+                    int position = viewHolder.getAdapterPosition();
                     mOnItemClickListener.onItemClick(v, viewHolder, position);
                 }
             }
@@ -33,7 +36,7 @@ public abstract class RvPureAdapter<T> extends RvDataAdapter<T> {
             @Override
             public boolean onLongClick(View v) {
                 if (mOnItemLongClickListener != null) {
-                    int position = viewHolder.getAdapterPosition() - getHeadersCount();
+                    int position = viewHolder.getAdapterPosition();
                     return mOnItemLongClickListener.onItemLongClick(v, viewHolder, position);
                 }
                 return false;
@@ -46,19 +49,35 @@ public abstract class RvPureAdapter<T> extends RvDataAdapter<T> {
     @LayoutRes
     public abstract int getItemLayout(int viewType);
 
+    /**
+     * 点击接口
+     */
+    public interface OnItemClickListener {
+        void onItemClick(View view, RecyclerView.ViewHolder holder, int position);
+    }
 
-    //把RvData一些公用的方法重写，转成私有，防止调用无效
 
     /**
-     * 一个假的添加HeaderView
+     * 长按接口
      */
-    public void addHeaderView(View view) {
+    public interface OnItemLongClickListener {
+        boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position);
     }
 
     /**
-     * 一个假的添加FootView
+     * 点击事件
      */
-    public void addFootView(View view) {
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
+    }
+
+    /**
+     * 长按事件
+     *
+     * @param onItemLongClickListener
+     */
+    public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
+        this.mOnItemLongClickListener = onItemLongClickListener;
     }
 
 

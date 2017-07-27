@@ -1,5 +1,6 @@
 # BaseAdapterDemo
-RecyclerView 的 通用适配器;  改 鸿婶 的BaseAdapter
+RecyclerView 的 通用适配器;  改 鸿婶 的 BaseAdapter
+鸿婶 git ( https://github.com/hongyangAndroid/baseAdapter)
 # 感谢鸿婶 的开源
 
 先看gif：
@@ -8,7 +9,9 @@ RecyclerView 的 通用适配器;  改 鸿婶 的BaseAdapter
 
 修改：
 没有采用 鸿婶 的装饰着模式, 
-把 HeaderAndFooterWrapper和MultiItemTypeAdapter和并了，
+
+因为 需要使用 notifyItemRangeInserted... 
+就把 HeaderAndFooterWrapper和MultiItemTypeAdapter和并了，
 增加了 RvDataAdapter 对 mDatas 的操作,
 
 ```java

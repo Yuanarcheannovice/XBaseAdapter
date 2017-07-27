@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by xz on 2017/7/26 0026.
- *
+ * <p>
  * 此adapter，着重于 对于数据处理
  */
 public abstract class RvDataAdapter<T> extends RecyclerView.Adapter<RvViewHolder> {
@@ -117,7 +117,10 @@ public abstract class RvDataAdapter<T> extends RecyclerView.Adapter<RvViewHolder
 
     @Override
     public int getItemCount() {
-        return getHeadersCount() + getFootersCount() + mDatas.size();
+        if (mDatas != null)
+            return getHeadersCount() + getFootersCount() + mDatas.size();
+        else
+            return 0;
     }
 
     /**

@@ -1,8 +1,9 @@
 # BaseAdapterDemo
 RecyclerView 的 通用适配器;  改 鸿婶 的BaseAdapter
-# 感谢鸿婶
+# 感谢鸿婶 的开源
 
 先看gif：
+
 ![image](https://github.com/Yuanarcheannovice/BaseAdapterDemo/blob/master/gif/adapter.gif)
 
 修改：

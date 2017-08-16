@@ -1,5 +1,9 @@
 # BaseAdapterDemo
+
+[![](https://www.jitpack.io/v/Yuanarcheannovice/BaseAdapterDemo.svg)](https://www.jitpack.io/#Yuanarcheannovice/BaseAdapterDemo)
+
 RecyclerView 的 通用适配器;  改 鸿婶 的 BaseAdapter
+
 鸿婶 git ( https://github.com/hongyangAndroid/baseAdapter)
 # 感谢鸿婶 的开源
 

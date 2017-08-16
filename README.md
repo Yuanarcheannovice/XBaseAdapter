@@ -6,7 +6,7 @@ RecyclerView 的 通用适配器;  改 鸿婶 的 BaseAdapter
 
 build 依赖：
 
-现在工程build里面先添加这个
+先在工程build里面先添加这个
 ```java
 	allprojects {
 		repositories {

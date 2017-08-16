@@ -16,11 +16,9 @@ allprojects {
     repositories {
         jcenter()
     }
+
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
 
 
 //全局设置版本

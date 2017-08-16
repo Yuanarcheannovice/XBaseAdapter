@@ -4,6 +4,26 @@
 
 RecyclerView 的 通用适配器;  改 鸿婶 的 BaseAdapter
 
+build 依赖：
+
+现在工程build里面先添加这个
+```java
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://www.jitpack.io' }
+		}
+	}
+ ```
+ 然后在需要使用Module的build中添加：
+ ```java
+ 
+ 	dependencies {
+	        compile 'com.github.Yuanarcheannovice:BaseAdapterDemo:1.0'
+	}
+
+ ```
+
 鸿婶 git ( https://github.com/hongyangAndroid/baseAdapter)
 # 感谢鸿婶 的开源
 

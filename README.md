@@ -19,7 +19,7 @@ build 依赖：
  ```java
  
  	dependencies {
-	        compile 'com.github.Yuanarcheannovice:BaseAdapterDemo:1.1'
+	        compile 'com.github.Yuanarcheannovice:BaseAdapterDemo:1.2'
 	}
 
  ```

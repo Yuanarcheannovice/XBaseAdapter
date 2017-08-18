@@ -1,4 +1,4 @@
-# BaseAdapterDemo
+# XBaseAdapter
 
 [![](https://www.jitpack.io/v/Yuanarcheannovice/BaseAdapterDemo.svg)](https://www.jitpack.io/#Yuanarcheannovice/BaseAdapterDemo)
 

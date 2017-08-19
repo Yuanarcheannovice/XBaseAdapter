@@ -64,7 +64,8 @@ Recyclerview的Adapter，处理了 点击，长按事件；
 
 XRvPureDataAdapter.java
 
-对XRvPureAdapter.java增加了对数据的操作，局限于List<T> 集合,如果需要使用Map<Obj,Obj>，直接继承XRvPureAdapter.java即可；
+对XRvPureAdapter.java增加了对数据的操作，
+局限于List<T> 集合,如果需要使用Map<Obj,Obj>，直接继承XRvPureAdapter.java即可；
 
 封装了List<T> addDatas 时的动画效果，尽量减少适配器的重复工作；
  ```

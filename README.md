@@ -24,43 +24,34 @@ build 依赖：
 
  ```
 
+
+简单的介绍一下各个Adapter的作用
+
+目录结构..		
+
+XListBaseAdapter.java	
+ListView的适配器简单封装(把设置数据稍微封装了一下,不用每次都写那几个关于数据的方法)
+
+XListViewHolder.java 
+网上收集到的一个处理ListView的Adapter的复用工具类
+
+XRvDataAdapter.java	
+XRvCommonAdapter.java	
+XRvMultiItemTypeAdapter.java	
+这三个是改了[张鸿洋]的BaseAdapter,把鸿婶的装饰者模式去掉，然后把 addHeader,addFooter,糅合到MultiItemTypeAdapter里面,
+同时继承XRvDataAdapter.java对于数据操作;
+具体用法，和鸿婶的BaseAdapter一样的用法
+
 鸿婶 git ( https://github.com/hongyangAndroid/baseAdapter)
-# 感谢鸿婶 的开源
+感谢鸿婶 的开源
 
-先看gif：
 
-![image](https://github.com/Yuanarcheannovice/BaseAdapterDemo/blob/master/gif/adapter.gif)
+XRvPureAdapter.java	
+Recyclerview的Adapter，处理了 点击，长按事件；
+处理onCreateViewHolder的方法；
+使用时只需要 设置Layout，和绑定数据
 
-修改：
-没有采用 鸿婶 的装饰着模式, 
-
-因为 需要使用 notifyItemRangeInserted... 
-就把 HeaderAndFooterWrapper和MultiItemTypeAdapter和并了，
-增加了 RvDataAdapter 对 mDatas 的操作,
-
-```java
-
- /**
-     * 数据集合增加数据 带刷新
-     *
-     * @param data      数据
-     * @param isRefresh 是否刷新
-     */
-    public void addData(List<T> data, boolean isRefresh) {
-        if (this.mDatas == null) {
-            this.mDatas = new ArrayList<>();
-            this.mDatas.addAll(data);
-            if (isRefresh)
-                notifyDataSetChanged();
-        } else {
-            this.mDatas.addAll(data);
-            //因为Header也是占有刷新的 下标，所以需要加上
-            notifyItemRangeInserted(mDatas.size() + mHeaderViews.size() - data.size(), data.size());
-        }
-    }
-    ...
-```
-
-增加了一个 纯净的adapter，里面只封装了 点击事件  
-
+XRvPureDataAdapter.java
+对XRvPureAdapter.java增加了对数据的操作，局限于List<T> 集合,如果需要使用Map<Obj,Obj>，直接继承XRvPureAdapter.java即可；
+封装了List<T> addDatas 时的动画效果，尽量减少适配器的重复工作；
 

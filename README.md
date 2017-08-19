@@ -30,25 +30,36 @@ build 依赖：
 目录结构..		
 
 XListBaseAdapter.java	
+
 ListView的适配器简单封装(把设置数据稍微封装了一下,不用每次都写那几个关于数据的方法)
 
 XListViewHolder.java 
+
 网上收集到的一个处理ListView的Adapter的复用工具类
 
 XRvDataAdapter.java	
+
 XRvCommonAdapter.java	
+
 XRvMultiItemTypeAdapter.java	
+
 这三个是改了[张鸿洋]的BaseAdapter,把鸿婶的装饰者模式去掉，然后把 addHeader,addFooter,糅合到MultiItemTypeAdapter里面,
+
 同时继承XRvDataAdapter.java对于数据操作;
+
 具体用法，和鸿婶的BaseAdapter一样的用法
 
 鸿婶 git ( https://github.com/hongyangAndroid/baseAdapter)
+
 感谢鸿婶 的开源
 
 
 XRvPureAdapter.java	
+
 Recyclerview的Adapter，处理了 点击，长按事件；
+
 处理onCreateViewHolder的方法；
+
 使用时只需要 设置Layout，和绑定数据
 
 XRvPureDataAdapter.java

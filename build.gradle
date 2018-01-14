@@ -17,17 +17,23 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
-
 }
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
 
 
 
 //全局设置版本
 ext {
     minSdkVersion = 19
-    targetSdkVersion = 23
-    compileSdkVersion = 26
-    supportVersion = '26.1.0'
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+    supportVersion = '27.0.2'
+    buildToolsVersion='27.0.1'
 
 }

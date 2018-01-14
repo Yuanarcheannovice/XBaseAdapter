@@ -33,8 +33,9 @@ public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
      */
     public XRvMultiItemTypeAdapter(Context context, List<T> datas) {
         mContext = context;
-        if (datas == null)
+        if (datas == null) {
             datas = new ArrayList<>();
+        }
         mDatas = datas;
         mItemViewDelegateManager = new XRvItemViewDelegateManager();
     }
@@ -55,8 +56,9 @@ public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
         } else {
             position = position - getHeadersCount();
             //判断是否有不同View的操作，如果有，则返回
-            if (!useItemViewDelegateManager())
+            if (!useItemViewDelegateManager()) {
                 return super.getItemViewType(position);
+            }
             return mItemViewDelegateManager.getItemViewType(mDatas.get(position), position);
         }
     }
@@ -106,35 +108,36 @@ public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
      * @return
      */
     protected boolean isEnabled(int viewType) {
-        if (viewType == BASE_ITEM_TYPE_HEADER || viewType == BASE_ITEM_TYPE_FOOTER)
+        if (viewType == BASE_ITEM_TYPE_HEADER || viewType == BASE_ITEM_TYPE_FOOTER) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
 
     private void setListener(final ViewGroup parent, final XRvViewHolder viewHolder, int viewType) {
-        if (!isEnabled(viewType)) return;
-        viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mOnItemClickListener != null) {
+        if (!isEnabled(viewType)) {
+            return;
+        }
+        if (mOnItemClickListener != null) {
+            viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     int position = viewHolder.getAdapterPosition() - getHeadersCount();
                     mOnItemClickListener.onItemClick(v, viewHolder, position);
                 }
-            }
-        });
-
-        viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (mOnItemLongClickListener != null) {
+            });
+        }
+        if (mOnItemLongClickListener != null) {
+            viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
                     int position = viewHolder.getAdapterPosition() - getHeadersCount();
                     return mOnItemLongClickListener.onItemLongClick(v, viewHolder, position);
                 }
-                return false;
-            }
-        });
+            });
+        }
     }
 
     @Override
@@ -162,8 +165,9 @@ public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
                 } else if (mFootViews.get(viewType) != null) {
                     return layoutManager.getSpanCount();
                 }
-                if (oldLookup != null)
+                if (oldLookup != null) {
                     return oldLookup.getSpanSize(position);
+                }
                 return 1;
             }
         });

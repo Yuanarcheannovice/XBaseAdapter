@@ -26,8 +26,9 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
 
 
     public List<T> getDatas() {
-        if (mDatas == null)
+        if (mDatas == null) {
             mDatas = new ArrayList<>();
+        }
         return mDatas;
     }
 
@@ -38,24 +39,27 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
      * @param isRefresh 是否刷新
      */
     public void setDatas(List<T> datas, boolean isRefresh) {
-        if (datas == null)
-            datas = new ArrayList<>();
+        if (datas == null) {
+            return;
+        }
         if (mDatas == null) {
             mDatas = new ArrayList<>();
         } else {
             mDatas.clear();
         }
         this.mDatas.addAll(datas);
-        if (isRefresh)
+        if (isRefresh) {
             notifyDataSetChanged();
+        }
     }
 
     /**
      * 一般使用 不带刷新
      */
     public void setDatas(List<T> datas) {
-        if (datas == null)
-            datas = new ArrayList<>();
+        if (datas == null) {
+            return;
+        }
         if (mDatas == null) {
             mDatas = new ArrayList<>();
         } else {
@@ -74,12 +78,35 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
         if (this.mDatas == null) {
             this.mDatas = new ArrayList<>();
             this.mDatas.addAll(data);
-            if (isRefresh)
+            if (isRefresh) {
                 notifyDataSetChanged();
+            }
         } else {
             this.mDatas.addAll(data);
-            //因为Header也是占有刷新的 下标，所以需要加上
-            notifyItemRangeInserted(mDatas.size() - data.size(), data.size());
+            if(isRefresh) {
+                notifyItemRangeInserted(mDatas.size() - data.size(), data.size());
+            }
+        }
+    }
+
+    /**
+     * 增加一个data
+     *
+     * @param data      数据
+     * @param isRefresh 是否刷新
+     */
+    public void addData(T data, boolean isRefresh) {
+        if (this.mDatas == null) {
+            this.mDatas = new ArrayList<>();
+            this.mDatas.add(data);
+            if (isRefresh) {
+                notifyDataSetChanged();
+            }
+        } else {
+            this.mDatas.add(data);
+            if(isRefresh) {
+                notifyItemRangeInserted(mDatas.size() - 1, 1);
+            }
         }
     }
 
@@ -117,8 +144,9 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
      * 移除所有数据
      */
     public void removeDataAll() {
-        if (mDatas != null)
+        if (mDatas != null) {
             mDatas.clear();
+        }
         notifyDataSetChanged();
     }
 
@@ -137,10 +165,11 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
 
     @Override
     public int getItemCount() {
-        if (mDatas != null)
+        if (mDatas != null) {
             return getHeadersCount() + getFootersCount() + mDatas.size();
-        else
+        } else {
             return 0;
+        }
     }
 
     /**

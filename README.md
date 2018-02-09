@@ -1,6 +1,6 @@
 # XBaseAdapter
 
-[![](https://www.jitpack.io/v/Yuanarcheannovice/BaseAdapterDemo.svg)](https://www.jitpack.io/#Yuanarcheannovice/BaseAdapterDemo)
+[![](https://jitpack.io/v/Yuanarcheannovice/XBaseAdapter.svg)](https://jitpack.io/#Yuanarcheannovice/XBaseAdapter)
 
 RecyclerView 的 通用适配器;  改 鸿婶 的 BaseAdapter
 
@@ -19,7 +19,7 @@ build 依赖：
  ```java
  
  	dependencies {
-	        compile 'com.github.Yuanarcheannovice:XBaseAdapter:1.2'
+	        compile 'com.github.Yuanarcheannovice:XBaseAdapter:1.4'
 	}
 
  ```

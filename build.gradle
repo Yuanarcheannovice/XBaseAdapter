@@ -30,7 +30,7 @@ task clean(type: Delete) {
 
 //全局设置版本
 ext {
-    minSdkVersion = 19
+    minSdkVersion = 14
     targetSdkVersion = 27
     compileSdkVersion = 27
     supportVersion = '27.0.2'

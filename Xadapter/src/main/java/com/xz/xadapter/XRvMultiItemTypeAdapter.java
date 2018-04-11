@@ -138,6 +138,14 @@ public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
                 }
             });
         }
+        if (mOnItemFocusableListener != null) {
+            viewHolder.getConvertView().setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    mOnItemFocusableListener.onItemFocusable(v,hasFocus,viewHolder,viewHolder.getAdapterPosition());
+                }
+            });
+        }
     }
 
     @Override

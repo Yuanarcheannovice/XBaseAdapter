@@ -27,6 +27,13 @@ public abstract class XRvPureAdapter extends RecyclerView.Adapter<XRvViewHolder>
      */
     protected OnItemLongClickListener mOnItemLongClickListener;
 
+
+    /**
+     * Tv端或者键盘手机使用
+     * item 焦点 被选中
+     */
+    protected OnItemFocusableListener mOnItemFocusableListener;
+
     @Override
     public XRvViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final XRvViewHolder viewHolder = XRvViewHolder.createViewHolder(parent.getContext(), parent, getItemLayout(viewType));
@@ -45,6 +52,14 @@ public abstract class XRvPureAdapter extends RecyclerView.Adapter<XRvViewHolder>
                 public boolean onLongClick(View v) {
                     int position = viewHolder.getAdapterPosition();
                     return mOnItemLongClickListener.onItemLongClick(v, viewHolder, position);
+                }
+            });
+        }
+        if (mOnItemFocusableListener != null) {
+            viewHolder.getConvertView().setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    mOnItemFocusableListener.onItemFocusable(v,hasFocus,viewHolder,viewHolder.getAdapterPosition());
                 }
             });
         }
@@ -71,6 +86,20 @@ public abstract class XRvPureAdapter extends RecyclerView.Adapter<XRvViewHolder>
     }
 
     /**
+     * Tv端或者键盘手机使用
+     * 焦点选中接口
+     */
+    public interface OnItemFocusableListener {
+        /**
+         * @param view     被选中的view
+         * @param hasFocus 是否有焦点
+         * @param holder   holder
+         * @param position 下标
+         */
+        void onItemFocusable(View view, boolean hasFocus, RecyclerView.ViewHolder holder, int position);
+    }
+
+    /**
      * 点击事件
      */
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -86,5 +115,10 @@ public abstract class XRvPureAdapter extends RecyclerView.Adapter<XRvViewHolder>
         this.mOnItemLongClickListener = onItemLongClickListener;
     }
 
-
+    /**
+     * 焦点选中时间
+     */
+    public void setOnItemFocusableListener(OnItemFocusableListener onItemFocusableListener) {
+        this.mOnItemFocusableListener = onItemFocusableListener;
+    }
 }

@@ -16,14 +16,39 @@ import java.util.List;
  */
 public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHolder> {
 
-    protected List<T> mDatas;//一般数据
-    protected SparseArrayCompat<View> mHeaderViews = new SparseArrayCompat<>();//headerView数量
-    protected SparseArrayCompat<View> mFootViews = new SparseArrayCompat<>();//footerView数量
-    protected static final int BASE_ITEM_TYPE_HEADER = 100000;//定义header的key的起始位置
-    protected static final int BASE_ITEM_TYPE_FOOTER = 200000;//定义footer的Key的起始位置
-    protected OnItemClickListener mOnItemClickListener;//点击事件
-    protected OnItemLongClickListener mOnItemLongClickListener;//长按事件
-
+    /**
+     * 一般数据
+     */
+    protected List<T> mDatas;
+    /**
+     * headerView数量
+     */
+    protected SparseArrayCompat<View> mHeaderViews = new SparseArrayCompat<>();
+    /**
+     * footerView数量
+     */
+    protected SparseArrayCompat<View> mFootViews = new SparseArrayCompat<>();
+    /**
+     * 定义header的key的起始位置
+     */
+    protected static final int BASE_ITEM_TYPE_HEADER = 100000;
+    /**
+     * 定义footer的Key的起始位置
+     */
+    protected static final int BASE_ITEM_TYPE_FOOTER = 200000;
+    /**
+     * 点击事件
+     */
+    protected OnItemClickListener mOnItemClickListener;
+    /**
+     * 长按事件
+     */
+    protected OnItemLongClickListener mOnItemLongClickListener;
+    /**
+     * Tv端或者键盘手机使用
+     * item 焦点 被选中
+     */
+    protected XRvPureAdapter.OnItemFocusableListener mOnItemFocusableListener;
 
     public List<T> getDatas() {
         if (mDatas == null) {
@@ -83,7 +108,7 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
             }
         } else {
             this.mDatas.addAll(data);
-            if(isRefresh) {
+            if (isRefresh) {
                 notifyItemRangeInserted(mDatas.size() - data.size(), data.size());
             }
         }
@@ -104,7 +129,7 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
             }
         } else {
             this.mDatas.add(data);
-            if(isRefresh) {
+            if (isRefresh) {
                 notifyItemRangeInserted(mDatas.size() - 1, 1);
             }
         }
@@ -213,6 +238,27 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
      */
     public interface OnItemLongClickListener {
         boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position);
+    }
+
+    /**
+     * Tv端或者键盘手机使用
+     * 焦点选中接口
+     */
+    public interface OnItemFocusableListener {
+        /**
+         * @param view     被选中的view
+         * @param hasFocus 是否有焦点
+         * @param holder   holder
+         * @param position 下标
+         */
+        void onItemFocusable(View view, boolean hasFocus, RecyclerView.ViewHolder holder, int position);
+    }
+
+    /**
+     * 焦点选中时间
+     */
+    public void setOnItemFocusableListener(XRvPureAdapter.OnItemFocusableListener onItemFocusableListener) {
+        this.mOnItemFocusableListener = onItemFocusableListener;
     }
 
     /**

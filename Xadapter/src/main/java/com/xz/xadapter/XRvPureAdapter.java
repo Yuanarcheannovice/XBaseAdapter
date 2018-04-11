@@ -56,6 +56,7 @@ public abstract class XRvPureAdapter extends RecyclerView.Adapter<XRvViewHolder>
             });
         }
         if (mOnItemFocusableListener != null) {
+            //todo 焦点事件，会触发两次，一次是item离开的时候，一次是item被进入的时候，
             viewHolder.getConvertView().setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {

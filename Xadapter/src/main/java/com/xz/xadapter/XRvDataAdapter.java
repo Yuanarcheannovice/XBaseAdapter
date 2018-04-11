@@ -250,6 +250,7 @@ public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHold
          * @param hasFocus 是否有焦点
          * @param holder   holder
          * @param position 下标
+         *  todo 焦点事件，会触发两次，一次是item离开的时候，一次是item被进入的时候，
          */
         void onItemFocusable(View view, boolean hasFocus, RecyclerView.ViewHolder holder, int position);
     }

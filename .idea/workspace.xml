@@ -113,8 +113,8 @@
       <file leaf-file-name="XRvPureAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvPureAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="58" column="57" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="57" />
+            <state relative-caret-position="375">
+              <caret line="98" column="11" lean-forward="false" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="55" />
               <folding>
                 <element signature="e#1054#1333#0" expanded="true" />
                 <element signature="e#1332#1333#0" expanded="true" />
@@ -137,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XRvMultiItemTypeAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XRvMultiItemTypeAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvMultiItemTypeAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="-1288">
               <caret line="141" column="57" lean-forward="false" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
               <folding>
                 <element signature="e#4669#4951#0" expanded="true" />
@@ -150,11 +150,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XRvDataAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XRvDataAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvDataAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="13" />
+            <state relative-caret-position="208">
+              <caret line="252" column="55" lean-forward="false" selection-start-line="252" selection-start-column="55" selection-end-line="252" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -2842,10 +2842,10 @@
         <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvPureDataAdapter.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvDataAdapter.java" />
         <option value="$PROJECT_DIR$/Xadapter/build.gradle" />
-        <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvPureAdapter.java" />
         <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvMultiItemTypeAdapter.java" />
+        <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvPureAdapter.java" />
+        <option value="$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvDataAdapter.java" />
       </list>
     </option>
   </component>
@@ -3041,7 +3041,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412826327" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412923960" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3089,7 +3089,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412826328" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412923960" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3272,7 +3272,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412826328" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523412923961" />
       </method>
     </configuration>
     <list size="1">
@@ -3695,14 +3695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvDataAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -3740,10 +3732,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvMultiItemTypeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
+          <caret line="141" column="57" lean-forward="false" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
+          <folding>
+            <element signature="e#4669#4951#0" expanded="true" />
+            <element signature="e#4950#4951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvPureAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="58" column="57" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="57" />
+        <state relative-caret-position="375">
+          <caret line="98" column="11" lean-forward="false" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="55" />
           <folding>
             <element signature="e#1054#1333#0" expanded="true" />
             <element signature="e#1332#1333#0" expanded="true" />
@@ -3755,14 +3758,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvMultiItemTypeAdapter.java">
+    <entry file="file://$PROJECT_DIR$/Xadapter/src/main/java/com/xz/xadapter/XRvDataAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="141" column="57" lean-forward="false" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
-          <folding>
-            <element signature="e#4669#4951#0" expanded="true" />
-            <element signature="e#4950#4951#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="208">
+          <caret line="252" column="55" lean-forward="false" selection-start-line="252" selection-start-column="55" selection-end-line="252" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -15,8 +15,15 @@ import com.xz.util.adapter.util.RvViewHolder;
  */
 public abstract class RvPureAdapter extends RecyclerView.Adapter<RvViewHolder> {
 
-    protected OnItemClickListener mOnItemClickListener;//点击事件
-    protected OnItemLongClickListener mOnItemLongClickListener;//长按事件
+    /**
+     * 点击事件
+     */
+    protected OnItemClickListener mOnItemClickListener;
+
+    /**
+     * 长按事件
+     */
+    protected OnItemLongClickListener mOnItemLongClickListener;
 
     @Override
     public RvViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -46,6 +53,11 @@ public abstract class RvPureAdapter extends RecyclerView.Adapter<RvViewHolder> {
     }
 
 
+    /**
+     * 设置layout
+     * @param viewType  getItemViewType控制ViewType
+     * @return
+     */
     @LayoutRes
     public abstract int getItemLayout(int viewType);
 
@@ -53,6 +65,9 @@ public abstract class RvPureAdapter extends RecyclerView.Adapter<RvViewHolder> {
      * 点击接口
      */
     public interface OnItemClickListener {
+        /**
+         * item点击
+         */
         void onItemClick(View view, RecyclerView.ViewHolder holder, int position);
     }
 

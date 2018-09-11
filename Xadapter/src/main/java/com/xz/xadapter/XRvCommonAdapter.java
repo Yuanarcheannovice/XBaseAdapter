@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * update by xz on 17/7/25.
  */
+@Deprecated
 public abstract class XRvCommonAdapter<T> extends XRvMultiItemTypeAdapter<T> {
 
     /**

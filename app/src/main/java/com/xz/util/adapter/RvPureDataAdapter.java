@@ -11,11 +11,15 @@ import java.util.List;
  */
 
 public abstract class RvPureDataAdapter<T> extends RvPureAdapter {
-    protected List<T> mDatas;//一般数据
+    /**
+     * 一般数据
+     */
+    protected List<T> mDatas;
 
     public List<T> getDatas() {
-        if (mDatas == null)
+        if (mDatas == null) {
             mDatas = new ArrayList<>();
+        }
         return mDatas;
     }
 
@@ -26,11 +30,13 @@ public abstract class RvPureDataAdapter<T> extends RvPureAdapter {
      * @param isRefresh 是否刷新
      */
     public void setData(List<T> datas, boolean isRefresh) {
-        if (datas == null)
+        if (datas == null) {
             datas = new ArrayList<>();
+        }
         this.mDatas = datas;
-        if (isRefresh)
+        if (isRefresh) {
             notifyDataSetChanged();
+        }
     }
 
     /**

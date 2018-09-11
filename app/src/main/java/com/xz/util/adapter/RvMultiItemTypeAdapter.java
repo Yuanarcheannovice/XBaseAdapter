@@ -20,6 +20,7 @@ import java.util.List;
  * <p>
  * 此Adapter 拥有 添加Header，Footer，点击，长按，实现不同layout功能;
  */
+@Deprecated
 public class RvMultiItemTypeAdapter<T> extends RvDataAdapter<T> {
     protected Context mContext;
     protected RvItemViewDelegateManager mItemViewDelegateManager;
@@ -33,8 +34,9 @@ public class RvMultiItemTypeAdapter<T> extends RvDataAdapter<T> {
      */
     public RvMultiItemTypeAdapter(Context context, List<T> datas) {
         mContext = context;
-        if (datas == null)
+        if (datas == null) {
             datas = new ArrayList<>();
+        }
         mDatas = datas;
         mItemViewDelegateManager = new RvItemViewDelegateManager();
     }
@@ -55,8 +57,9 @@ public class RvMultiItemTypeAdapter<T> extends RvDataAdapter<T> {
         } else {
             position = position - getHeadersCount();
             //判断是否有不同View的操作，如果有，则返回
-            if (!useItemViewDelegateManager())
+            if (!useItemViewDelegateManager()) {
                 return super.getItemViewType(position);
+            }
             return mItemViewDelegateManager.getItemViewType(mDatas.get(position), position);
         }
     }
@@ -106,15 +109,14 @@ public class RvMultiItemTypeAdapter<T> extends RvDataAdapter<T> {
      * @return
      */
     protected boolean isEnabled(int viewType) {
-        if (viewType == BASE_ITEM_TYPE_HEADER || viewType == BASE_ITEM_TYPE_FOOTER)
-            return false;
-        else
-            return true;
+        return viewType != BASE_ITEM_TYPE_HEADER && viewType != BASE_ITEM_TYPE_FOOTER;
     }
 
 
     private void setListener(final ViewGroup parent, final RvViewHolder viewHolder, int viewType) {
-        if (!isEnabled(viewType)) return;
+        if (!isEnabled(viewType)) {
+            return;
+        }
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,8 +164,9 @@ public class RvMultiItemTypeAdapter<T> extends RvDataAdapter<T> {
                 } else if (mFootViews.get(viewType) != null) {
                     return layoutManager.getSpanCount();
                 }
-                if (oldLookup != null)
+                if (oldLookup != null) {
                     return oldLookup.getSpanSize(position);
+                }
                 return 1;
             }
         });

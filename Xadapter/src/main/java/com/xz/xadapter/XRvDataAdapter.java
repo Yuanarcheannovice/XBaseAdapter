@@ -14,6 +14,7 @@ import java.util.List;
  * <p>
  * 此adapter，着重于 对于数据处理
  */
+@Deprecated
 public abstract class XRvDataAdapter<T> extends RecyclerView.Adapter<XRvViewHolder> {
 
     /**

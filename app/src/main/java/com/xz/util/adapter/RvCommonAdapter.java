@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * update by xz on 17/7/25.
  */
+@Deprecated
 public abstract class RvCommonAdapter<T> extends RvMultiItemTypeAdapter<T> {
 
     /**

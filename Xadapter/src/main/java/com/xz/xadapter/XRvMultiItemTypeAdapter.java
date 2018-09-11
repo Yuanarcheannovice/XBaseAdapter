@@ -20,6 +20,7 @@ import java.util.List;
  * <p>
  * 此Adapter 拥有 添加Header，Footer，点击，长按，实现不同layout功能;
  */
+@Deprecated
 public class XRvMultiItemTypeAdapter<T> extends XRvDataAdapter<T> {
     protected Context mContext;
     protected XRvItemViewDelegateManager mItemViewDelegateManager;

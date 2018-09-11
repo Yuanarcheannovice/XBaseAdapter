@@ -8,6 +8,7 @@ import android.support.v4.util.SparseArrayCompat;
  *
  *
  */
+@Deprecated
 public class XRvItemViewDelegateManager<T> {
     SparseArrayCompat<XRvItemViewDelegate<T>> delegates = new SparseArrayCompat();
 

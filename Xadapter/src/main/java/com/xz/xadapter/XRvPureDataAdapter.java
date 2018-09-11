@@ -1,10 +1,11 @@
 package com.xz.xadapter;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author xz
  * @date 2017/7/27 0027
  * 增加了纯净Adapter，的数据操作
@@ -26,6 +27,13 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
     }
 
 
+    /**
+     * 一般使用 不带刷新
+     */
+    public void setDatas(@NonNull List<T> datas) {
+        setDatas(datas, false);
+    }
+
 
     /**
      * 数据替换 ，带刷新
@@ -33,7 +41,7 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
      * @param datas     数据
      * @param isRefresh 是否刷新
      */
-    public void setDatas(List<T> datas, boolean isRefresh) {
+    public void setDatas(@NonNull List<T> datas, boolean isRefresh) {
         if (datas == null) {
             return;
         }
@@ -45,42 +53,6 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
         this.mDatas.addAll(datas);
         if (isRefresh) {
             notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * 一般使用 不带刷新
-     */
-    public void setDatas(List<T> datas) {
-        if (datas == null) {
-            return;
-        }
-        if (mDatas == null) {
-            mDatas = new ArrayList<>();
-        } else {
-            mDatas.clear();
-        }
-        this.mDatas.addAll(datas);
-    }
-
-    /**
-     * 数据集合增加数据 带刷新
-     *
-     * @param data      数据
-     * @param isRefresh 是否刷新
-     */
-    public void addDatas(List<T> data, boolean isRefresh) {
-        if (this.mDatas == null) {
-            this.mDatas = new ArrayList<>();
-            this.mDatas.addAll(data);
-            if (isRefresh) {
-                notifyDataSetChanged();
-            }
-        } else {
-            this.mDatas.addAll(data);
-            if(isRefresh) {
-                notifyItemRangeInserted(mDatas.size() - data.size(), data.size());
-            }
         }
     }
 
@@ -99,11 +71,34 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
             }
         } else {
             this.mDatas.add(data);
-            if(isRefresh) {
+            if (isRefresh) {
                 notifyItemRangeInserted(mDatas.size() - 1, 1);
             }
         }
     }
+
+    /**
+     * 数据集合增加数据 带刷新
+     *
+     * @param data      数据
+     * @param isRefresh 是否刷新
+     */
+    public void addDatas(List<T> data, boolean isRefresh) {
+        if (this.mDatas == null) {
+            this.mDatas = new ArrayList<>();
+            this.mDatas.addAll(data);
+            if (isRefresh) {
+                notifyDataSetChanged();
+            }
+        } else {
+            this.mDatas.addAll(data);
+            if (isRefresh) {
+                notifyItemRangeInserted(mDatas.size() - 1, data.size());
+            }
+        }
+    }
+
+
 
     /**
      * 移除data
@@ -136,6 +131,7 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
         if (mDatas != null && index >= 0) {
             if (index < mDatas.size()) {
                 mDatas.remove(index);
+                notifyItemRangeRemoved(index,1);
                 return true;
             } else {
                 return false;

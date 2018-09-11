@@ -5,6 +5,7 @@ package com.xz.xadapter.xutil;
  * Created by zhy on 16/6/22.
  * 项目委托
  */
+@Deprecated
 public interface XRvItemViewDelegate<T>
 {
     //获取项目视图布局ID

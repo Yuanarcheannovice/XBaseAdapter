@@ -26,6 +26,14 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
         return mDatas;
     }
 
+    /**
+     * 一般使用 不带刷新
+     */
+    public void setData(@NonNull T data) {
+        List<T> lists = new ArrayList<>();
+        lists.add(data);
+        setDatas(lists, true);
+    }
 
     /**
      * 一般使用 不带刷新
@@ -42,9 +50,6 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
      * @param isRefresh 是否刷新
      */
     public void setDatas(@NonNull List<T> datas, boolean isRefresh) {
-        if (datas == null) {
-            return;
-        }
         if (mDatas == null) {
             mDatas = new ArrayList<>();
         } else {
@@ -62,7 +67,7 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
      * @param data      数据
      * @param isRefresh 是否刷新
      */
-    public void addData(T data, boolean isRefresh) {
+    public void addData(@NonNull T data, boolean isRefresh) {
         if (this.mDatas == null) {
             this.mDatas = new ArrayList<>();
             this.mDatas.add(data);
@@ -83,7 +88,7 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
      * @param data      数据
      * @param isRefresh 是否刷新
      */
-    public void addDatas(List<T> data, boolean isRefresh) {
+    public void addDatas(@NonNull List<T> data, boolean isRefresh) {
         if (this.mDatas == null) {
             this.mDatas = new ArrayList<>();
             this.mDatas.addAll(data);
@@ -99,14 +104,13 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
     }
 
 
-
     /**
      * 移除data
      *
      * @param data 对象
      * @return 是否移除成功
      */
-    public boolean removeData(T data) {
+    public boolean removeData(@NonNull T data) {
         return this.mDatas != null && this.mDatas.remove(data);
     }
 
@@ -131,7 +135,7 @@ public abstract class XRvPureDataAdapter<T> extends XRvPureAdapter {
         if (mDatas != null && index >= 0) {
             if (index < mDatas.size()) {
                 mDatas.remove(index);
-                notifyItemRangeRemoved(index,1);
+                notifyItemRangeRemoved(index, 1);
                 return true;
             } else {
                 return false;

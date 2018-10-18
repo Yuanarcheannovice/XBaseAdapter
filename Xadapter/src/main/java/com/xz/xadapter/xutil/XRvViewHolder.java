@@ -111,6 +111,12 @@ public class XRvViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public XRvViewHolder setTextSize(int viewId, int textSize) {
+        TextView view = getView(viewId);
+        view.setTextSize(textSize);
+        return this;
+    }
+
     public XRvViewHolder setTextColor(int viewId, int textColor) {
         TextView view = getView(viewId);
         view.setTextColor(textColor);

@@ -4,9 +4,6 @@
 
 RecyclerView 的 通用适配器;  
 
-1.8开始 并入 到另一个工程 
-
-https://github.com/Yuanarcheannovice/Android_Project_Lib
 
 build 依赖：
 
